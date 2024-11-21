@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
+import axios from 'axios';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import './App.css';
+import Auth from './components/AuthPage/AuthPage.jsx';  //imports the authentication page
+import Signup from './components/AuthPage/Signup.jsx';  //imports the Signup component
+import Login from './components/AuthPage/Login.jsx';  //imports the Login component
+import LandingPage from './components/LandingPage/LandingPage.jsx';  //imports the landing page
+import HomePage from './components/HomePage/HomePage.jsx';  //imports the Login component
+
+axios.defaults.withCredentials = true;
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+          <Route path="/" element={<Auth />}/> 
+          <Route path="/signup" element={<Signup />}/> 
+          <Route path="/login" element={<Login />}/> 
+          <Route path="/landing-page" element={<LandingPage />}/> 
+          <Route path="/home" element={<HomePage />}/> 
+        </Routes>
+    </Router>
   );
 }
 
