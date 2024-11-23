@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip'
 import { useNavigate, Link } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
@@ -56,27 +57,36 @@ function Signup() {
 
     return (
         <Container
-            component="main"
-            maxWidth="xs"
+            maxWidth="sm"
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                minHeight: '100vh',
+                height: '100vh',
             }}
         >
             <Paper
                 sx={{
-                    padding: 3,
+                    padding: 8,
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
                     width: '100%',
-                    borderRadius: 2, 
+                    borderRadius: 3,
+                    boxShadow: 3,
+                    border: '1px solid #ddd',
                 }}
             >
-                <Typography variant="h4" gutterBottom>
+                <Typography
+                    variant="h4"
+                    gutterBottom
+                    sx={{
+                        fontWeight: 'bold',
+                        color: 'text.primary',
+                        marginBottom: 3, 
+                    }}
+                >
                     Sign Up
                 </Typography>
 
@@ -94,74 +104,96 @@ function Signup() {
                         <Form>
                             <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
                                 <Grid item xs={12}>
-                                    <Field 
-                                        name="username"
-                                        as={TextField}
-                                        variant="outlined"
-                                        label="Username"
-                                        fullWidth
-                                        error={touched.username && Boolean(errors.username)}
-                                        helperText={touched.username && errors.username}
-                                    />
+                                    <Tooltip 
+                                        title={touched.username && errors.username ? errors.username : ""} 
+                                        open={touched.username && Boolean(errors.username)}
+                                    >
+                                        <Field
+                                            name="username"
+                                            as={TextField}
+                                            variant="outlined"
+                                            label="Username"
+                                            fullWidth
+                                            error={touched.username && Boolean(errors.username)}
+                                        />
+                                    </Tooltip>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Field 
-                                        name="email"
-                                        as={TextField}
-                                        variant="outlined"
-                                        label="Email"
-                                        type="email"
-                                        fullWidth
-                                        error={touched.email && Boolean(errors.email)}
-                                        helperText={touched.email && errors.email}
-                                    />
+                                    <Tooltip 
+                                        title={touched.email && errors.email ? errors.email : ""} 
+                                        open={touched.email && Boolean(errors.email)}
+                                    >
+                                        <Field
+                                            name="email"
+                                            as={TextField}
+                                            variant="outlined"
+                                            label="Email"
+                                            type="email"
+                                            fullWidth
+                                            error={touched.email && Boolean(errors.email)}
+                                        />
+                                    </Tooltip>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Field 
-                                        name="password"
-                                        as={TextField}
-                                        variant="outlined"
-                                        label="Password"
-                                        type="password"
-                                        fullWidth
-                                        error={touched.password && Boolean(errors.password)}
-                                        helperText={touched.password && errors.password}
-                                    />
+                                    <Tooltip
+                                        title={touched.password && errors.password ? errors.password : ""} 
+                                        open={touched.password && Boolean(errors.password)}
+                                    >
+                                        <Field
+                                            name="password"
+                                            as={TextField}
+                                            variant="outlined"
+                                            label="Password"
+                                            type="password"
+                                            fullWidth
+                                            error={touched.password && Boolean(errors.password)}
+                                        />
+                                    </Tooltip>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Field 
-                                        name="confirmPassword"
-                                        as={TextField}
-                                        variant="outlined"
-                                        label="Confirm Password"
-                                        type="password"
-                                        fullWidth
-                                        error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-                                        helperText={touched.confirmPassword && errors.confirmPassword}
-                                    />
+                                    <Tooltip
+                                        title={touched.confirmPassword && errors.confirmPassword ? errors.confirmPassword : ""} 
+                                        open={touched.confirmPassword && Boolean(errors.confirmPassword)}
+                                    >
+                                        <Field
+                                            name="confirmPassword"
+                                            as={TextField}
+                                            variant="outlined"
+                                            label="Confirm Password"
+                                            type="password"
+                                            fullWidth
+                                            error={touched.confirmPassword && Boolean(errors.confirmPassword)}
+                                        />
+                                    </Tooltip>
                                 </Grid>
                             </Grid>
 
-                            <Box sx={{ marginTop: 2, }}>
+                            <Box sx={{ marginTop: 3, display: 'flex', justifyContent: 'center' }}>
                                 <Button
                                     variant="contained"
-                                    fullWidth
-                                    type='submit'
-                                    sx={{ padding: '12px' }}
+                                    type="submit"
+                                    sx={{
+                                        width: 'auto',
+                                        padding: '12px 24px', 
+                                        backgroundColor: 'primary.main',
+                                        '&:hover': {
+                                            backgroundColor: 'primary.dark',
+                                        },
+                                    }}
                                 >
                                     Sign Up
                                 </Button>
                             </Box>
 
                             {errorMessage && (
-                                <Typography color="error" variants="body2" sx={{ marginTop: 2 }}>
+                                <Typography color="error" variants="body2" sx={{ marginTop: 2, display: 'flex', justifyContent: 'center' }}>
                                     {errorMessage}
                                 </Typography>
                             )}
                         </Form>
                     )}
                 </Formik>
-
+                
                 <Typography variant="body2" sx={{ marginTop: 2 }}>
                     Already have an account? <Link to="/login">Log In</Link>
                 </Typography>
