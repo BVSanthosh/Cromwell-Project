@@ -1,0 +1,282 @@
+[
+    {
+        "name": "Dell XPS 13",
+        "description": "13.4-inch FHD+ laptop with Intel Core i7 processor.",
+        "price": 999.99,
+        "category": "Laptops",
+        "image": "laptops/dell_xps_13.jpg"
+    },
+    {
+        "name": "Apple MacBook Air M2",
+        "description": "13-inch laptop with Apple M2 chip and Retina display.",
+        "price": 1199.00,
+        "category": "Laptops",
+        "image": "laptops/apple_macbook_air_m2.jpg"
+    },
+    {
+        "name": "HP Spectre x360",
+        "description": "13.5-inch 2-in-1 laptop with Intel Evo platform.",
+        "price": 1249.99,
+        "category": "Laptops",
+        "image": "laptops/hp_spectre_x360.jpg"
+    },
+    {
+        "name": "Lenovo ThinkPad X1 Carbon",
+        "description": "14-inch business laptop with Intel Core i7 processor.",
+        "price": 1399.99,
+        "category": "Laptops",
+        "image": "laptops/lenovo_thinkpad_x1_carbon.jpg"
+    },
+    {
+        "name": "Asus ZenBook 14",
+        "description": "14-inch ultrabook with AMD Ryzen 7 processor.",
+        "price": 899.99,
+        "category": "Laptops",
+        "image": "laptops/asus_zenbook_14.jpg"
+    },
+    {
+        "name": "Microsoft Surface Laptop 5",
+        "description": "13.5-inch touchscreen laptop with Intel Core i5.",
+        "price": 999.99,
+        "category": "Laptops",
+        "image": "laptops/microsoft_surface_laptop_5.jpg"
+    },
+    {
+        "name": "Acer Swift 3",
+        "description": "14-inch laptop with Intel Core i5 and 8GB RAM.",
+        "price": 699.99,
+        "category": "Laptops",
+        "image": "laptops/acer_swift_3.jpg"
+    },
+    {
+        "name": "Razer Blade 15",
+        "description": "15.6-inch gaming laptop with NVIDIA GeForce RTX 3060.",
+        "price": 1799.99,
+        "category": "Laptops",
+        "image": "laptops/razer_blade_15.jpg"
+    },
+    {
+        "name": "Apple iPhone 15 Pro",
+        "description": "6.1-inch smartphone with A17 Bionic chip and ProMotion display.",
+        "price": 999.00,
+        "category": "Smartphones",
+        "image": "smartphones/apple_iphone_15_pro.jpg"
+    },
+    {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "6.8-inch smartphone with Snapdragon 8 Gen 2 processor.",
+        "price": 1199.99,
+        "category": "Smartphones",
+        "image": "smartphones/samsung_galaxy_s23_ultra.jpg"
+    },
+    {
+        "name": "Google Pixel 8",
+        "description": "6.3-inch smartphone with Google Tensor G3 chip.",
+        "price": 699.00,
+        "category": "Smartphones",
+        "image": "smartphones/google_pixel_8.jpg"
+    },
+    {
+        "name": "OnePlus 12",
+        "description": "6.7-inch smartphone with Fluid AMOLED display.",
+        "price": 749.99,
+        "category": "Smartphones",
+        "image": "smartphones/oneplus_12.jpg"
+    },
+    {
+        "name": "Sony Xperia 1 V",
+        "description": "6.5-inch smartphone with 4K HDR OLED display.",
+        "price": 1299.99,
+        "category": "Smartphones",
+        "image": "smartphones/sony_xperia_1v.jpg"
+    },
+    {
+        "name": "Xiaomi 14 Pro",
+        "description": "6.73-inch smartphone with Leica camera system.",
+        "price": 899.99,
+        "category": "Smartphones",
+        "image": "smartphones/xiaomi_14_pro.jpg"
+    },
+    {
+        "name": "Oppo Find X6 Pro",
+        "description": "6.82-inch smartphone with Hasselblad camera.",
+        "price": 1099.99,
+        "category": "Smartphones",
+        "image": "smartphones/oppo_find_x6_pro.jpg"
+    },
+    {
+        "name": "Huawei P60 Pro",
+        "description": "6.6-inch smartphone with XMAGE Ultra Vision camera.",
+        "price": 1199.99,
+        "category": "Smartphones",
+        "image": "smartphones/huawei_p60_pro.jpg"
+    },
+    {
+        "name": "Apple iPad Pro 12.9-inch",
+        "description": "12.9-inch tablet with M2 chip and Liquid Retina XDR display.",
+        "price": 1099.00,
+        "category": "Tablets",
+        "image": "tablets/apple_ipad_pro.jpg"
+    },
+    {
+        "name": "Samsung Galaxy Tab S9 Ultra",
+        "description": "14.6-inch tablet with Super AMOLED display.",
+        "price": 1199.99,
+        "category": "Tablets",
+        "image": "tablets/samsung_galaxy_tab_s9.jpg"
+    },
+    {
+        "name": "Microsoft Surface Pro 9",
+        "description": "13-inch 2-in-1 tablet with Intel Core i7 processor.",
+        "price": 999.99,
+        "category": "Tablets",
+        "image": "tablets/microsoft_surface_pro.jpg"
+    },
+    {
+        "name": "Lenovo Tab P12 Pro",
+        "description": "12.6-inch tablet with Snapdragon 870 processor.",
+        "price": 699.99,
+        "category": "Tablets",
+        "image": "tablets/lenovo_tab_p12.jpg"
+    },
+    {
+        "name": "Amazon Fire HD 10",
+        "description": "10.1-inch tablet with 1080p Full HD display.",
+        "price": 149.99,
+        "category": "Tablets",
+        "image": "tablets/amazon_fire_hd.jpg"
+    },
+    {
+        "name": "Huawei MatePad Pro 11",
+        "description": "11-inch tablet with OLED FullView display.",
+        "price": 799.00,
+        "category": "Tablets",
+        "image":"tablets/huawei_matpad_pro.jpg"
+    },
+    {
+        "name": "Lenovo Tab P11 Pro",
+        "description": "11.5-inch OLED display, MediaTek Kompanio 1300T processor, and premium metal design.",
+        "price": 499.99,
+        "category": "Tablets",
+        "image": "tablets/lenovo_tab_p11.jpg"
+    },
+    {
+        "name": "Asus ROG Flow Z13",
+        "description": "13-inch gaming tablet with detachable keyboard.",
+        "price": 1599.99,
+        "category": "Tablets",
+        "image": "tablets/asus_rog_flow.jpg"
+    },
+    {
+        "name": "Apple AirPods Pro (2nd Gen)",
+        "description": "Wireless earbuds with active noise cancellation.",
+        "price": 249.99,
+        "category": "Headphones",
+        "image": "headphones/apple_airpods_pro.jpg"
+    },
+    {
+        "name": "Sony WH-1000XM5",
+        "description": "Wireless noise-canceling over-ear headphones.",
+        "price": 399.99,
+        "category": "Headphones",
+        "image": "headphones/sony_wh1000xm5.jpg"
+    },
+    {
+        "name": "Bose QuietComfort 45",
+        "description": "Over-ear wireless headphones with active noise cancellation.",
+        "price": 329.99,
+        "category": "Headphones",
+        "image": "headphones/bose_quietcomfort.jpg"
+    },
+    {
+        "name": "Beats Studio Buds",
+        "description": "True wireless earbuds with balanced sound.",
+        "price": 149.99,
+        "category": "Headphones",
+        "image": "headphones/beats_studio_buds.jpg"
+    },
+    {
+        "name": "Sennheiser Momentum 4 Wireless",
+        "description": "Premium over-ear headphones with noise cancellation.",
+        "price": 349.99,
+        "category": "Headphones",
+        "image": "headphones/sennheiser_momentum_4.jpg"
+    },
+    {
+        "name": "Jabra Elite 7 Pro",
+        "description": "Wireless earbuds with multi-point Bluetooth connection.",
+        "price": 199.99,
+        "category": "Headphones",
+        "image": "headphones/jabra_elite_7.jpg"
+    },
+    {
+        "name": "Bang & Olufsen Beoplay H95",
+        "description": "Luxury noise-canceling over-ear headphones.",
+        "price": 899.99,
+        "category": "Headphones",
+        "image": "headphones/bang_olufsen_beoplay.jpg"
+    },
+    {
+        "name": "HyperX Cloud Alpha Wireless",
+        "description": "Gaming headset with 300-hour battery life.",
+        "price": 199.99,
+        "category": "Headphones",
+        "image": "headphones/hyperx_cloud_alpha.jpg"
+    },
+    {
+        "name": "Logitech MX Master 3S",
+        "description": "Precision wireless mouse for productivity.",
+        "price": 99.99,
+        "category": "Accessories",
+        "image": "accessories/logitech_mx_master.jpg"
+    },
+    {
+        "name": "Razer Huntsman Mini",
+        "description": "Compact mechanical gaming keyboard.",
+        "price": 129.99,
+        "category": "Accessories",
+        "image": "accessories/razer_huntsman_mini.jpg"
+    },
+    {
+        "name": "Anker PowerCore 26800",
+        "description": "High-capacity portable power bank.",
+        "price": 79.99,
+        "category": "Accessories",
+        "image": "accessories/anker_powercore.jpg"
+    },
+    {
+        "name": "Samsung T7 Portable SSD",
+        "description": "500GB external solid-state drive.",
+        "price": 99.99,
+        "category": "Accessories",
+        "image": "accessories/samsung_t7.jpg"
+    },
+    {
+        "name": "Apple Magic Keyboard",
+        "description": "Compact wireless keyboard with scissor mechanism.",
+        "price": 99.00,
+        "category": "Accessories",
+        "image": "accessories/apple_magic_keyboard.jpg"
+    },
+    {
+        "name": "Elgato Stream Deck",
+        "description": "Customizable control deck for streamers.",
+        "price": 149.99,
+        "category": "Accessories",
+        "image": "accessories/elgato_stream.jpg"
+    },
+    {
+        "name": "Corsair MM700 RGB Extended Mouse Pad",
+        "description": "Large RGB gaming mouse pad with dynamic lighting.",
+        "price": 49.99,
+        "category": "Accessories",
+        "image": "accessories/corsair_mm700.jpg"
+    },
+    {
+        "name": "Sony CFexpress Type A 160GB",
+        "description": "High-speed memory card for professional cameras.",
+        "price": 199.99,
+        "category": "Accessories",
+        "image": "accessories/sony_cfexpress.jpg"
+    }
+]

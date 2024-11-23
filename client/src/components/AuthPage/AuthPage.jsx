@@ -31,25 +31,35 @@ function AuthPage() {
         >
             <Paper
                 sx={{
-                    padding: 3,  
-                    borderRadius: 2, 
+                    padding: 8, 
+                    borderRadius: 3,
+                    border: '1px solid #ddd',
+                    boxShadow: 3, 
+                    width: '100%',
+                    maxWidth: 400, 
                 }}
             >
-                <Typography variant="h3" gutterBottom>
-                    Welcome to Cromwell
+                <Typography variant="h4" gutterBottom sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+                    Welcome to VSB Electronics
+                </Typography>
+                <Typography variant="body1" sx={{ marginBottom: 4, color: 'text.secondary' }}>
+                    Discover the latest tech gadgets and electronics. Join us today to explore more!
                 </Typography>
 
-                <Grid container 
-                    direction="column"  
-                    spacing={3}          
-                    sx={{ width: '100%' }}
-                >
+                <Grid container direction="column" spacing={2}>
                     <Grid item xs={12}>
                         <Button
                             fullWidth
-                            variant="outlined"
-                            size="medium"
-                            sx={{ maxWidth: '200px' }}
+                            variant="contained"
+                            size="large"
+                            sx={{
+                                maxWidth: 250,
+                                padding: '12px',
+                                backgroundColor: 'primary.main',
+                                '&:hover': {
+                                    backgroundColor: 'primary.dark', // Darken on hover
+                                },
+                            }}
                             onClick={goToSignup}
                         >
                             Sign Up
@@ -59,8 +69,17 @@ function AuthPage() {
                         <Button
                             fullWidth
                             variant="outlined"
-                            size="medium"
-                            sx={{ maxWidth: '200px' }}
+                            size="large"
+                            sx={{
+                                maxWidth: 250,
+                                padding: '12px',
+                                borderColor: 'primary.main',
+                                color: 'primary.main',
+                                '&:hover': {
+                                    backgroundColor: 'primary.main',
+                                    color: '#fff',
+                                },
+                            }}
                             onClick={goToLogin}
                         >
                             Log In

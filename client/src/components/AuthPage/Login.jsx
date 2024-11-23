@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from  'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
@@ -7,36 +7,29 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid2';
-import { useNavigate, Link} from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { Formik, Form, Field } from 'formik';
+import Tooltip from '@mui/material/Tooltip';  // Import Tooltip component
+import * as Yup from 'yup';  // Add Yup for validation
 
 function Login() {
     const navigate = useNavigate();
-    const [errorMessage, setErrorMessage] = useState('');  
-    const [loginForm, setLoginForm] = useState({    //state for managing the login info
-        email: '',
-        password: ''
+    const [errorMessage, setErrorMessage] = useState('');
+
+    // Define validation schema using Yup
+    const validationSchema = Yup.object({
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        password: Yup.string().required('Password is required'),
     });
 
-    //event handler for updating the input fields in the form to show user input
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        setLoginForm((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    }
-
-    //event handler for submitting the login form data to the server
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+    // Event handler for submitting the login form data to the server
+    const handleSubmit = async (values) => {
         try {
-            const response = await axios.post('http://localhost:5000/user/login', loginForm);  //establishes a http connection to the specified endpoint
+            const response = await axios.post('http://localhost:5000/user/login', values);  // Establishes a HTTP connection to the specified endpoint
 
             if (response.data.success) {
                 console.log('Login successful:', response.data);
-                navigate('/landing-page');   //navigates to the form page after successfully logining in
+                navigate('/landing');   // Navigates to the form page after successfully logging in
             } else {
                 setErrorMessage('Login failed. Please check your email and password.');
             }
@@ -48,80 +41,111 @@ function Login() {
 
     return (
         <Container
-            component="main"
-            maxWidth="xs"
+            maxWidth="sm"
             sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                minHeight: '100vh',
+                height: '100vh',
+                padding: 0,
             }}
         >
             <Paper
                 sx={{
-                    padding: 3,  
+                    padding: 8,
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
                     width: '100%',
-                    borderRadius: 2, 
+                    borderRadius: 3,
+                    boxShadow: 3,
+                    border: '1px solid #ddd',
                 }}
             >
-                <Typography variant="h4" gutterBottom>
+                <Typography
+                    variant="h4"
+                    gutterBottom
+                    sx={{
+                        fontWeight: 'bold',
+                        color: 'text.primary',
+                        marginBottom: 3, 
+                    }}
+                >
                     Log In
                 </Typography>
 
-                <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-                    <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
-                        <Grid item xs={12}>
-                            <TextField
-                                name="email"
-                                label="Email"
-                                type="email"
-                                variant="outlined"
-                                value={loginForm.email}
-                                onChange={handleChange}
-                                fullWidth
-                                error={!!errorMessage}
-                                helperText={errorMessage && 'Please enter a valid email'}
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                name="password"
-                                label="Password"
-                                type="password"
-                                variant="outlined"
-                                value={loginForm.password}
-                                onChange={handleChange}
-                                fullWidth
-                                error={!!errorMessage}
-                                helperText={errorMessage && 'Password is incorrect'}
-                            />
-                        </Grid>
-                    </Grid>
+                <Formik
+                    initialValues={{ email: '', password: '' }}
+                    onSubmit={handleSubmit}
+                    validationSchema={validationSchema} 
+                >
+                    {({ errors, touched }) => (
+                        <Form style={{ width: '100%' }}>
+                            <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
+                                <Grid item xs={12}>
+                                    <Tooltip
+                                        title={errors.email && touched.email ? errors.email : ''}
+                                        open={Boolean(errors.email) && touched.email} 
+                                    >
+                                        <Field
+                                            name="email"
+                                            label="Email"
+                                            type="email"
+                                            variant="outlined"
+                                            as={TextField}
+                                            error={!!(errors.email && touched.email)}
+                                        />
+                                    </Tooltip>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Tooltip
+                                        title={errors.password && touched.password ? errors.password : ''}
+                                        open={Boolean(errors.password) && touched.password} 
+                                    >
+                                        <Field
+                                            name="password"
+                                            label="Password"
+                                            type="password"
+                                            variant="outlined"
+                                            as={TextField}
+                                            error={!!(errors.password && touched.password)}
+                                        />
+                                    </Tooltip>
+                                </Grid>
+                            </Grid>
 
-                    <Box sx={{ width: '100%', marginTop: 2 }}>
-                        <Button
-                            variant="contained"
-                            fullWidth
-                            type="submit"
-                            sx={{ padding: '12px' }}
-                        >
-                            Log In
-                        </Button>
-                    </Box>
+                            <Box sx={{ width: '100%', marginTop: 3, display: 'flex', justifyContent: 'center' }}>
+                                <Button
+                                    variant="contained"
+                                    type="submit"
+                                    sx={{
+                                        width: 'auto',
+                                        padding: '12px 24px', 
+                                        backgroundColor: 'primary.main',
+                                        '&:hover': {
+                                            backgroundColor: 'primary.dark',
+                                        },
+                                    }}
+                                >
+                                    Log In
+                                </Button>
+                            </Box>
 
-                    {errorMessage && (
-                        <Typography color="error" variant="body2" sx={{ marginTop: 2 }}>
-                            {errorMessage}
-                        </Typography>
+                            {errorMessage && (
+                                <Typography color="error" variant="body2" sx={{ marginTop: 2, display: 'flex', justifyContent: 'center' }}>
+                                    {errorMessage}
+                                </Typography>
+                            )}
+                        </Form>
                     )}
-                </form>
+                </Formik>
 
-                <Typography variant="body2" sx={{ marginTop: 2 }}>
-                    Don&apos;t have an account? <Link to="/signup">Sign Up</Link>
+                <Typography variant="body2" sx={{ marginTop: 3 }}>
+                    Don&apos;t have an account?{' '}
+                    <Link to="/signup" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+                        Sign Up
+                    </Link>
                 </Typography>
             </Paper>
         </Container>
