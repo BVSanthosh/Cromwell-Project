@@ -9,6 +9,9 @@ import { navigationCustomizations } from './customizations/navigation';
 import { surfacesCustomizations } from './customizations/surfaces';
 import { colorSchemes, typography, shadows, shape } from './themePrimitives';
 
+/**
+ * This Component and the rest of the files in theme/ have been imported from a third party repo
+ */
 function AppTheme({ children, disableCustomTheme, themeComponents }) {
   const theme = React.useMemo(() => {
     return disableCustomTheme

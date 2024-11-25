@@ -1,19 +1,22 @@
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid2';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
+import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
+import { Button, Container, Typography, Paper } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 
+/**
+ * AuthPage Component
+ * The first component that gets rendered.
+ * Contains buttons to direct the user to either the signup or login components
+ */
 function AuthPage() {
-    const navigate = useNavigate();
+    const navigate = useNavigate();  //Used for navigating to the login or signup pages
 
-    //event handler for navigating to the signup page
+    //Handle navigating to the signup page
     const goToSignup = () => {
         navigate('/signup');
     }
 
-    //event handler for navigating to the login page
+    //Handle for navigating to the login page
     const goToLogin = () => {
         navigate('/login');
     }
@@ -91,4 +94,5 @@ function AuthPage() {
     );
 
 }
+
 export default AuthPage;

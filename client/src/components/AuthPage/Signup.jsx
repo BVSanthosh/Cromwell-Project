@@ -1,24 +1,18 @@
+import React, { useState }  from 'react';
 import axios from 'axios';
-import { useState } from  'react';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid2';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip'
 import { useNavigate, Link } from 'react-router-dom';
+import { Button, Container, TextField, Typography, Paper, Box, Tooltip} from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 function Signup() {
-    const navigate = useNavigate();
-    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();  //used for navigating to the login page
+    const [errorMessage, setErrorMessage] = useState('');   //State for the error message
 
-    //Formik validation schema using Yup
+    //Validation schema using Yup
     const validationSchema = Yup.object({
-        username: Yup.string()
+        username: Yup.string()  
             .required('Username is required')
             .min(3, 'Username must be at least 3 characters long'),
         email: Yup.string()
@@ -36,12 +30,12 @@ function Signup() {
             .oneOf([Yup.ref('password'), null], 'Passwords must match')
     });
 
-    //event handler for submitting the signup form data to the server
+    //Handle submitting the signup form data to the server
     const handleSubmit = async (values) => {
         const { confirmPassword, ...userCredentials } = values;
 
         try {
-            const response = await axios.post('http://localhost:5000/user/signup', userCredentials);  //establishes a http connection to the specified endpoint
+            const response = await axios.post('http://localhost:5000/user/register', userCredentials);  //Sends a POST request to the registration API (POST /user/register)
 
             if (response.data.success) {
                 console.log('Signup successful:', response.data);
@@ -79,6 +73,7 @@ function Signup() {
                 }}
             >
                 <Typography
+                    data-testid="signup-title"
                     variant="h4"
                     gutterBottom
                     sx={{
@@ -109,6 +104,7 @@ function Signup() {
                                         open={touched.username && Boolean(errors.username)}
                                     >
                                         <Field
+                                            data-testid="username-input"
                                             name="username"
                                             as={TextField}
                                             variant="outlined"
@@ -124,6 +120,7 @@ function Signup() {
                                         open={touched.email && Boolean(errors.email)}
                                     >
                                         <Field
+                                            data-testid="email-input"
                                             name="email"
                                             as={TextField}
                                             variant="outlined"
@@ -140,6 +137,7 @@ function Signup() {
                                         open={touched.password && Boolean(errors.password)}
                                     >
                                         <Field
+                                            data-testid="password-input"
                                             name="password"
                                             as={TextField}
                                             variant="outlined"
@@ -156,6 +154,7 @@ function Signup() {
                                         open={touched.confirmPassword && Boolean(errors.confirmPassword)}
                                     >
                                         <Field
+                                            data-testid="newpassword-input"
                                             name="confirmPassword"
                                             as={TextField}
                                             variant="outlined"
@@ -170,6 +169,7 @@ function Signup() {
 
                             <Box sx={{ marginTop: 3, display: 'flex', justifyContent: 'center' }}>
                                 <Button
+                                    data-testid="signup-button"
                                     variant="contained"
                                     type="submit"
                                     sx={{
@@ -195,7 +195,7 @@ function Signup() {
                 </Formik>
                 
                 <Typography variant="body2" sx={{ marginTop: 2 }}>
-                    Already have an account? <Link to="/login">Log In</Link>
+                    Already have an account? <Link data-testid="login-link" to="/login">Log In</Link>
                 </Typography>
             </Paper>
         </Container>

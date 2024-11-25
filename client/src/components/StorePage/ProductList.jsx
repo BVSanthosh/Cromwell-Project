@@ -1,24 +1,36 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Card, CardContent, CardMedia, Typography, Box, Pagination, Button } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { addToBasket } from '../../redux/basketSlice.js'; // Assuming addToBasket action is correct
+import { addToBasket } from '../../redux/basketSlice.js';
 
+/**
+ * ProductList Component
+ * Displays a tite, description and the product list for the specified category
+ * Allows users to add an item to the cart
+ * 
+ * Props: 
+ *  category - category name
+ *  description - description of the category
+ *  products - list of product objects
+ */
 function ProductList({ category, description, products }) {
     const dispatch = useDispatch();
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
+    const [currentPage, setCurrentPage] = useState(1);  //State for the current page
+    const itemsPerPage = 5;  //Number of producst to display each time
 
-    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfLastItem = currentPage * itemsPerPage;  
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
+    const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);  //Get the current list of products to display based on the active page
 
+    //Handle page change
     const handlePageChange = (event, value) => {
         setCurrentPage(value);
     };
 
+    //Handle adding an item to the basket
     const handleAddToBasket = (product) => {
-        dispatch(addToBasket(product)); // Add product to basket
+        dispatch(addToBasket(product)); 
     };
 
     return (

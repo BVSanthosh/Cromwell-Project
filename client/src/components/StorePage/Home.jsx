@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Typography, Box, Card,CardContent } from '@mui/material';
-import { Carousel } from 'react-responsive-carousel'; // Install react-responsive-carousel
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
+import { Carousel } from 'react-responsive-carousel'; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+//Store the description to display for each category
 const categoryDescriptions = {
   Laptops: "Discover powerful laptops for work, gaming, and personal use. Get the latest features in sleek designs.",
   Smartphones: "Explore a wide range of smartphones with cutting-edge technology to keep you connected.",
@@ -12,8 +13,12 @@ const categoryDescriptions = {
   Accessories: "Complete your tech setup with our range of accessories, including chargers, cases, and more.",
 };
 
-function HomePage() {
-  const { products } = useSelector((state) => state.products); // Access the products map from Redux store
+/**
+ * Home Component
+ * The home page of the store which contains a description of the store and a subsection for each category with a preview of all the products available
+ */
+function Home() {
+  const { products } = useSelector((state) => state.products); //Get the products map from the Redux store
 
   return (
     <Container sx={{ paddingTop: 4 }}>
@@ -21,7 +26,7 @@ function HomePage() {
         <Typography variant="h3" gutterBottom>
           VSB Electronics
         </Typography>
-        <Typography variant="body1" paragraph>
+        <Typography variant="body1">
           VSB Electronics is your one-stop online store for all things tech. Whether you're looking for a new laptop, smartphone, tablet, or accessories, we have a wide range of products to fit your needs. With unbeatable prices and a smooth shopping experience, VSB Electronics ensures that you get the best deals on the latest gadgets.
         </Typography>
       </Box>
@@ -72,4 +77,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Home;
