@@ -1,6 +1,10 @@
+/**
+ * Product Catalogue Model
+ */
+
 const mongoose = require('mongoose');
 
-//Schema for storing product catalogue
+//Schema for storing the product catalogue
 const productsSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -24,6 +28,6 @@ const productsSchema = new mongoose.Schema({
     }
 });
 
-const Products = mongoose.model('Products', productsSchema);  //converts the schema into a model
+const Products = mongoose.model('Products', productsSchema);  //Convert the schema into a model
 
-module.exports = Products;  //exports the model
+module.exports = Products; 

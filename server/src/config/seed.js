@@ -1,3 +1,7 @@
+/**
+ * Populates the Product Collection with the list of products
+ */
+
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const fs = require('fs');
@@ -7,6 +11,7 @@ const { connectDB } = require('./database');
 
 dotenv.config({ path: path.join(__dirname, '../../.env') });
 
+//Establishes a connect to the database, parses the products JSON file and then makes a POST request to create the Product Collection
 const seedProducts = async () => {
   try {
     connectDB();
