@@ -1,35 +1,34 @@
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid2';
 import { useNavigate, Link } from 'react-router-dom';
+import { Button, Container, Paper, Typography, Box, TextField, Tooltip } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { Formik, Form, Field } from 'formik';
-import Tooltip from '@mui/material/Tooltip';  // Import Tooltip component
-import * as Yup from 'yup';  // Add Yup for validation
+import * as Yup from 'yup';  
 
+/**
+ * Login Component
+ * Allows the user to enter their username and password
+ * Directs the user to the landing page upon successful login 
+ */
 function Login() {
-    const navigate = useNavigate();
-    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();  //Used for navigating to the landing page
+    const [errorMessage, setErrorMessage] = useState('');  //State for the error message 
 
-    // Define validation schema using Yup
+    //Validation schema using Yup
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email address').required('Email is required'),
         password: Yup.string().required('Password is required'),
     });
 
-    // Event handler for submitting the login form data to the server
+    //Handle submitting the login form data to the server
     const handleSubmit = async (values) => {
         try {
-            const response = await axios.post('http://localhost:5000/user/login', values);  // Establishes a HTTP connection to the specified endpoint
+            const response = await axios.post('http://localhost:5000/user/login', values);  //Sends a POST request to the login API (POST /user/login)
 
             if (response.data.success) {
                 console.log('Login successful:', response.data);
-                navigate('/landing');   // Navigates to the form page after successfully logging in
+                navigate('/landing');   //Navigates to the form page after successfully logging in
             } else {
                 setErrorMessage('Login failed. Please check your email and password.');
             }
@@ -64,6 +63,7 @@ function Login() {
                 }}
             >
                 <Typography
+                    data-testid="login-title"
                     variant="h4"
                     gutterBottom
                     sx={{
@@ -89,6 +89,7 @@ function Login() {
                                         open={Boolean(errors.email) && touched.email} 
                                     >
                                         <Field
+                                            data-testid="email-input"
                                             name="email"
                                             label="Email"
                                             type="email"
@@ -104,6 +105,7 @@ function Login() {
                                         open={Boolean(errors.password) && touched.password} 
                                     >
                                         <Field
+                                            data-testid="password-input"
                                             name="password"
                                             label="Password"
                                             type="password"
@@ -117,6 +119,7 @@ function Login() {
 
                             <Box sx={{ width: '100%', marginTop: 3, display: 'flex', justifyContent: 'center' }}>
                                 <Button
+                                    data-testid="login-button"
                                     variant="contained"
                                     type="submit"
                                     sx={{
@@ -143,7 +146,7 @@ function Login() {
 
                 <Typography variant="body2" sx={{ marginTop: 3 }}>
                     Don&apos;t have an account?{' '}
-                    <Link to="/signup" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
+                    <Link data-testid="signup-link" to="/signup" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
                         Sign Up
                     </Link>
                 </Typography>

@@ -26,6 +26,8 @@ connectDB();  //conencts to the MongoDB database
 app.use('/user', authRouter);  //sets up the authentication routes (signup and login)
 app.use('/products', productsRouter);  //sets up the products route
 
-app.listen(PORT, () => {  //initiates the server
+const server = app.listen(PORT, () => {  //initiates the server
     console.log(`server running on port: ${PORT}`);
 })
+
+module.exports = { app, server };

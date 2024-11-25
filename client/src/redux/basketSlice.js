@@ -1,15 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//Define the initial state for the basket slice
 const initialState = {
   items: [],
   totalItems: 0,
   totalPrice: 0,
 };
 
+//Create a slice for managing basket-related state
 const basketSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
+    //Reducer to add a product to the basket
     addToBasket: (state, action) => {
       const product = action.payload;
 
@@ -25,6 +28,7 @@ const basketSlice = createSlice({
       state.totalPrice += product.price;
     },
 
+    //Reducer to remove a product from the basket
     removeFromBasket: (state, action) => {
       const productId = action.payload;
 
@@ -38,6 +42,7 @@ const basketSlice = createSlice({
       }
     },
 
+    //Reducer to update the quantity of a product in the basket
     updateQuantity: (state, action) => {
       const { id, quantity } = action.payload;
 
@@ -62,4 +67,3 @@ const basketSlice = createSlice({
 
 export const { addToBasket, removeFromBasket, updateQuantity, clearBasket } = basketSlice.actions;
 export default basketSlice.reducer;
-

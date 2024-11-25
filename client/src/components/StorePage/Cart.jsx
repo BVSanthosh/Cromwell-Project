@@ -4,23 +4,31 @@ import { Typography, List, ListItem, ListItemText, Button, Box, IconButton } fro
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { updateQuantity, removeFromBasket } from '../../redux/basketSlice.js'; // Ensure these actions are correctly imported
+import { updateQuantity, removeFromBasket } from '../../redux/basketSlice.js';
 
+/**
+ * Cart Component
+ * Shows the current status of the cart
+ * Displays each item added, its quantity and an option to increment, decrement or remove the item
+ */
 function Cart() {
-  const basketItems = useSelector((state) => state.basket.items);
-  const totalPrice = useSelector((state) => state.basket.totalPrice);
   const dispatch = useDispatch();
+  const basketItems = useSelector((state) => state.basket.items);  //Get the basket list from the redux store
+  const totalPrice = useSelector((state) => state.basket.totalPrice);  //Get the total price from the redux store
 
+  //Handle incrementing an item
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ id: item._id, quantity: item.quantity + 1 }));
   };
 
+  //Handle decrementing an item
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ id: item._id, quantity: item.quantity - 1 }));
     }
   };
 
+  //Handle removing an item
   const handleRemove = (item) => {
     dispatch(removeFromBasket(item._id));
   };

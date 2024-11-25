@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel')  //imports the user model
 
 //signup controller which contains the logic for handling signup requests and saves the user signup details as a document in the User model
-exports.signup = async (req, res) => {
+exports.register = async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
@@ -36,7 +36,7 @@ exports.signup = async (req, res) => {
 
         return res.status(201).json({
             success: true,
-            message: 'User sign up successful, please verify your email',
+            message: 'User registration successful',
             data: {
                 username: newUser.username
             }
