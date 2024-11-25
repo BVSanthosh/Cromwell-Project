@@ -1,4 +1,8 @@
-const Products = require('../models/productModel')  //imports the products model
+/**
+ * Controllers for the /products routes
+ */
+
+const Products = require('../models/productModel')  //Import the products model
 
 exports.product_catalogue = async (req, res) => {
     try {

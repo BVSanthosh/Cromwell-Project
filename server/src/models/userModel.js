@@ -1,3 +1,7 @@
+/**
+ * User Model
+ */
+
 const mongoose = require('mongoose');
 
 //Schema for storing user credentials
@@ -16,6 +20,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-const User = mongoose.model('User', userSchema);  //converts the schema into a model
+const User = mongoose.model('User', userSchema);  //Convert the schema into a model
 
-module.exports = User;  //exports the model
+module.exports = User; 

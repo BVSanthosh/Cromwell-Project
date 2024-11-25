@@ -8,8 +8,8 @@ describe('/user route tests', () => {
     const response = await request(app)
       .post('/user/register')
       .send({
-        username: 'Testing',
-        email: 'Testing@example.com',
+        username: 'TestUser0',
+        email: 'TestUser0@example.com',
         password: 'password123',
       });
 

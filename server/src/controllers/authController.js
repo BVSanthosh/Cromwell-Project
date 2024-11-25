@@ -1,9 +1,13 @@
+/**
+ * Controllers for the /user routes
+ */
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/userModel')  //imports the user model
+const User = require('../models/userModel')  //Import the user model
 
-//signup controller which contains the logic for handling signup requests and saves the user signup details as a document in the User model
+//Signup controller which contains the logic for handling signup requests and saves the user signup details as a document in the User model
 exports.register = async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -51,7 +55,7 @@ exports.register = async (req, res) => {
     }
 }
 
-//login controller which contains the logic for handling login requests
+//Login controller which contains the logic for handling login requests
 exports.login = async (req, res) => {
     try {
         const {email, password} = req.body;
@@ -118,6 +122,7 @@ exports.login = async (req, res) => {
     }
 }
 
+//Controller which contains the logic for sending user data
 exports.user_details = async (req, res) => {
     try {
         const user = await User.findById(req.userId);

@@ -1,6 +1,10 @@
+/**
+ * Manages accesss to the MongoDB database
+ */
+
 const mongoose = require('mongoose');
 
-//establishes a connection with the database using the URL stored in .env
+//Establish a connection with the database using the URL stored in .env
 exports.connectDB = async () => {
   try {
     const con = await mongoose.connect(process.env.MONGO_URL);
